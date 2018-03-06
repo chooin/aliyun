@@ -11,8 +11,8 @@
     ],
     "require": {},
     "autoload": {
-        "classmap": [
-            "OpenSearch/"
-        ]
+        "psr-4": {
+            "Chooin\\": "src/"
+        }
     }
 }
