@@ -11,6 +11,9 @@
     ],
     "require": {},
     "autoload": {
+        "classmap": [
+            "src/"
+        ],
         "psr-4": {
             "Chooin\\": "src/"
         }
