@@ -1,0 +1,18 @@
+{
+    "name": "chooin/aliyun",
+    "description": "Aliyun SDK",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "zhuning",
+            "email": "chooin@126.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "classmap": [
+            "OpenSearch/"
+        ]
+    }
+}
