@@ -160,8 +160,20 @@ class UrlParamsBuilder {
     }
 
     public function initAbtest($searchParams) {
-        if (isset($searchParams->abtest) && isset($searchParams->abtest->sceneTag) && isset($searchParams->abtest->flowDivider)) {
-            $this->params[self::ABTEST] = sprintf("%s=%s,%s=%s", Constant::get('ABTEST_PARAM_SCENE_TAG'), $searchParams->abtest->sceneTag, Constant::get('ABTEST_PARAM_FLOW_DIVIDER'), $searchParams->abtest->flowDivider);
+        if (isset($searchParams->abtest)) {
+            $abtestParams = array();
+
+            if (isset($searchParams->abtest->sceneTag)) {
+                $abtestParams[] = sprintf("%s:%s", Constant::get('ABTEST_PARAM_SCENE_TAG'), $searchParams->abtest->sceneTag);
+            }
+
+            if (isset($searchParams->abtest->flowDivider)) {
+                $abtestParams[] = sprintf("%s:%s", Constant::get('ABTEST_PARAM_FLOW_DIVIDER'), $searchParams->abtest->flowDivider);
+            }
+
+            if (!empty($abtestParams)) {
+                $this->params[self::ABTEST] = implode(",", $abtestParams);
+            }
         }
     }
 
